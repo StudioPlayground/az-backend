@@ -5,10 +5,12 @@ import com.studioplayground.azbackend.account.domain.model.AccountRole;
 import com.studioplayground.azbackend.account.domain.model.AccountStatus;
 import com.studioplayground.azbackend.account.domain.model.Gender;
 import jakarta.persistence.*;
+import lombok.Getter;
 
 import java.time.LocalDate;
 
 @Entity
+@Getter
 public class AccountJpaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
