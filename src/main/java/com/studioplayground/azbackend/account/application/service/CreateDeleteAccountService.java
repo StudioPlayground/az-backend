@@ -18,7 +18,7 @@ public class CreateDeleteAccountService implements SignUpAccountUseCase, DeleteA
     private final DeleteAccountPort deleteAccountPort;
 
     @Override
-    public AccountId signUp(Account account) {
+    public Account signUp(Account account) {
         return createAccountPort.create(account);
     }
 

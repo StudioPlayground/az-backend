@@ -20,35 +20,35 @@ public class UpdateAccountService implements ForceSuspendAccountUseCase, ExpireS
     private final UpdateAccountPort updateAccountPort;
 
     @Override
-    public void forceSuspend(AccountId id) {
+    public Account forceSuspend(AccountId id) {
         final Account account = readAccountPort.read(id);
         account.suspend();
 
-        updateAccountPort.update(account);
+        return updateAccountPort.update(account);
     }
 
     @Override
-    public void expireSuspension(AccountId id) {
-        doUnSuspend(id);
+    public Account expireSuspension(AccountId id) {
+        return doUnSuspend(id);
     }
 
     @Override
-    public void unSuspend(AccountId id) {
-        doUnSuspend(id);
+    public Account unSuspend(AccountId id) {
+        return doUnSuspend(id);
     }
 
     @Override
-    public void updateProfile(AccountId id, AccountProfile profile) {
+    public Account updateProfile(AccountId id, AccountProfile profile) {
         final Account account = readAccountPort.read(id);
         account.updateProfile(profile);
 
-        updateAccountPort.update(account);
+        return updateAccountPort.update(account);
     }
 
-    private void doUnSuspend(AccountId id) {
+    private Account doUnSuspend(AccountId id) {
         final Account account = readAccountPort.read(id);
         account.unSuspend();
 
-        updateAccountPort.update(account);
+        return updateAccountPort.update(account);
     }
 }
