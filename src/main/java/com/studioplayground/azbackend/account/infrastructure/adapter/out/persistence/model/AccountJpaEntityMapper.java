@@ -7,8 +7,8 @@ import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
-public interface AccountJapEntityMapper {
-    AccountJapEntityMapper INSTANCE = Mappers.getMapper(AccountJapEntityMapper.class);
+public interface AccountJpaEntityMapper {
+    AccountJpaEntityMapper INSTANCE = Mappers.getMapper(AccountJpaEntityMapper.class);
 
     @Mappings({
             @Mapping(target = "id", source = "account.id.id")
@@ -17,8 +17,8 @@ public interface AccountJapEntityMapper {
     AccountJpaEntity toJpaEntity(Account account);
 
     @Mappings({
-            @Mapping(target = "id", expression = "java(new AccountId(accountJapEntity.id))")
-            , @Mapping(target = "email", source = "java(new Email(accountJapEntity.email))")
+            @Mapping(target = "id", expression = "java(new AccountId(accountJpaEntity.id))")
+            , @Mapping(target = "email", source = "java(new Email(accountJpaEntity.email))")
     })
-    Account fromJapEntity(AccountJpaEntity accountJpaEntity);
+    Account fromJpaEntity(AccountJpaEntity accountJpaEntity);
 }
