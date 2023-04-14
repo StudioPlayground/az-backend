@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mysql://database:3306/AZ_DB
+    #기&characterEncoding=UTF-8&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
+    username: test_user
+    password: azmysql123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
