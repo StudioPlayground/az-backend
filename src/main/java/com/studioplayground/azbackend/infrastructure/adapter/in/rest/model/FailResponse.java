@@ -6,9 +6,7 @@ import lombok.Getter;
 
 @Getter
 @Builder(access = AccessLevel.PRIVATE)
-public class FailResponse implements ApiResponse {
-    private static final FailResponse EMPTY_FAIL_RESPONSE = of(ErrorCode.UNKNOWN_ERROR, "");
-
+public non-sealed abstract class FailResponse implements ApiResponse {
     private final String apiVersion;
     private final boolean success = false;
 
@@ -17,13 +15,9 @@ public class FailResponse implements ApiResponse {
 
     public static FailResponse of(ErrorCode errorCode, String message) {
         return FailResponse.builder()
-            .apiVersion("1.0.0")
+            .apiVersion(DEFAULT_API_VERSION)
             .errorCode(errorCode)
             .message(message)
             .build();
-    }
-
-    public static FailResponse fail() {
-        return EMPTY_FAIL_RESPONSE;
     }
 }
