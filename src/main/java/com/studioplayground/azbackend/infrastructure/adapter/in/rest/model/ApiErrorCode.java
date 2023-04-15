@@ -1,6 +1,8 @@
 package com.studioplayground.azbackend.infrastructure.adapter.in.rest.model;
 
-public interface ErrorCode {
+public interface ApiErrorCode {
+
     int getCode();
+
     int getMessage();
 }
