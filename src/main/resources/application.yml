@@ -4,7 +4,7 @@ spring:
     locations: classpath:flyway/ddl,classpath:flyway/dml/local
     out-of-order: true
   datasource:
-    url: jdbc:mysql://localhost:3306/AZ_DB?useSSL=false
+    url: jdbc:mysql://localhost:3306/AZ_DB?useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: rootazmysql123
     driver-class-name: com.mysql.cj.jdbc.Driver
