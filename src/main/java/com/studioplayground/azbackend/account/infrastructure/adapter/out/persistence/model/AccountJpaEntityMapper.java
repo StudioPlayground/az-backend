@@ -18,7 +18,7 @@ public interface AccountJpaEntityMapper {
 
     @Mappings({
             @Mapping(target = "id", expression = "java(new AccountId(accountJpaEntity.id))")
-            , @Mapping(target = "email", source = "java(new Email(accountJpaEntity.email))")
+            , @Mapping(target = "email", expression = "java(new Email(accountJpaEntity.email))")
     })
     Account fromJpaEntity(AccountJpaEntity accountJpaEntity);
 }
