@@ -12,7 +12,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor(access = PRIVATE)
-public final class Account implements Accountable {
+public final class Account {
 
     private final AccountId id;
     private final LocalDate birthDate;
@@ -56,11 +56,4 @@ public final class Account implements Accountable {
             key
         );
     }
-
-    public static Account of(PendingAccount account, LocalDate birthDate, Gender gender,
-        AccountProfile profile) {
-        return new Account(account.getId(), birthDate, gender, account.getEmail(),
-            account.getName(), ACTIVE, account.getRole(), profile, account.getKey());
-    }
-
 }
