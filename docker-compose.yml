@@ -1,0 +1,36 @@
+version: '3.1'
+
+services:
+  az-mysql:
+    container_name: az-mysql
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_DATABASE: AZ_DB
+      MYSQL_USER: test_user
+      MYSQL_PASSWORD: azmysql123
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_ROOT_PASSWORD: rootazmysql123
+      TZ: Asia/Seoul
+    ports:
+      - "3306:3306"
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --lower_case_table_names=0 --default-time-zone="+09:00"
+
+  az-adminer:
+    container_name: az-adminer
+    image: adminer:latest
+    ports:
+      - "18080:8080"
+    environment:
+      - ADMINER_DEFAULT_SERVER=az-mysql
+      - ADMINER_DESIGN=hydra
+      - ADMINER_PLUGINS=tables-filter tinymce
+    links:
+      - az-mysql
+
+  az-redis:
+    container_name: az-redis
+    image: redis:7
+    restart: always
+    ports:
+      - "6379:6379"
