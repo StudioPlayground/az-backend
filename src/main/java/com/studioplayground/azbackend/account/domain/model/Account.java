@@ -41,7 +41,7 @@ public final class Account {
         this.profile = profile;
     }
 
-    public static Account of(AccountId id, LocalDate birthDate, Gender gender, Email email,
+    public static Account withId(AccountId id, LocalDate birthDate, Gender gender, Email email,
         Name name, AccountStatus status, AccountRole role, AccountProfile profile,
         ProviderKey key) {
         return new Account(
@@ -51,6 +51,22 @@ public final class Account {
             email,
             name,
             status,
+            role,
+            profile,
+            key
+        );
+    }
+
+    public static Account withOutId(LocalDate birthDate, Gender gender, Email email,
+        Name name, AccountRole role, AccountProfile profile,
+        ProviderKey key) {
+        return new Account(
+            AccountId.EMPTY,
+            birthDate,
+            gender,
+            email,
+            name,
+            ACTIVE,
             role,
             profile,
             key

@@ -11,4 +11,8 @@ public record Email(String email) {
         Objects.requireNonNull(email);
     }
 
+    public static Email from(String email) {
+        return new Email(email);
+    }
+
 }
