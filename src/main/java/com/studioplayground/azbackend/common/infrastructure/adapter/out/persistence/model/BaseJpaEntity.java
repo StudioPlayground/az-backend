@@ -5,6 +5,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.NotNull;
+import java.time.ZonedDateTime;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -14,8 +15,6 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import java.time.LocalDateTime;
 
 @SuperBuilder
 @MappedSuperclass
@@ -27,22 +26,22 @@ public abstract class BaseJpaEntity {
     @NotNull
     @Column
     @CreatedBy
-    private String createdBy;
+    private Long createdBy;
 
     @NotNull
     @Column
     @LastModifiedBy
-    private String modifiedBy;
+    private Long modifiedBy;
 
     @NotNull
     @Column
     @CreatedDate
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime createdDateTime;
+    private ZonedDateTime createdDateTime;
 
     @NotNull
     @Column
     @LastModifiedDate
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime modifiedDateTime;
+    private ZonedDateTime modifiedDateTime;
 }
