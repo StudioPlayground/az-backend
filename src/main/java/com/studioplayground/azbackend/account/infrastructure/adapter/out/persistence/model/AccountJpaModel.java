@@ -1,6 +1,5 @@
 package com.studioplayground.azbackend.account.infrastructure.adapter.out.persistence.model;
 
-import static jakarta.persistence.EnumType.STRING;
 import static jakarta.persistence.GenerationType.IDENTITY;
 import static lombok.AccessLevel.PRIVATE;
 import static lombok.AccessLevel.PROTECTED;
@@ -13,7 +12,6 @@ import com.studioplayground.azbackend.account.domain.model.Gender;
 import com.studioplayground.azbackend.common.domain.model.Email;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import java.time.LocalDate;
@@ -27,23 +25,18 @@ public class AccountJpaModel {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    // TODO: 2023/05/12 BaseEntity 작업 후 수정 필요
     private Long id;
     private LocalDate birthDate;
-    // String 으로 받을지 아님 domain 그냥 사용할지
-    @Enumerated(STRING)
-    private Gender gender;
+    private String gender;
 
     private String email;
 
     @Embedded
     private NameJpaModel name;
 
-    @Enumerated(STRING)
-    private AccountStatus status;
+    private String status;
 
-    @Enumerated(STRING)
-    private AccountRole role;
+    private String role;
 
     @Embedded
     private AccountProfileJpaModel profile;
@@ -52,10 +45,14 @@ public class AccountJpaModel {
     private ProviderKeyJpaModel key;
 
     public static AccountJpaModel from(Account account) {
-        // id를 이렇게 넣어주면 실수 할수 있을거 같음
-        return new AccountJpaModel(account.getId().id(), account.getBirthDate(),
-            account.getGender(), account.getEmail().email(), NameJpaModel.from(account.getName()),
-            account.getStatus(), account.getRole(),
+        return new AccountJpaModel(
+            account.getId().id(),
+            account.getBirthDate(),
+            account.getGender().name(),
+            account.getEmail().email(),
+            NameJpaModel.from(account.getName()),
+            account.getStatus().name(),
+            account.getRole().name(),
             AccountProfileJpaModel.from(account.getProfile()),
             ProviderKeyJpaModel.from(account.getKey()));
     }
@@ -64,11 +61,11 @@ public class AccountJpaModel {
         return Account.withId(
             new AccountId(id),
             birthDate,
-            gender,
+            Gender.from(gender),
             new Email(email),
             name.toDomainModel(),
-            status,
-            role,
+            AccountStatus.from(status),
+            AccountRole.from(role),
             profile.toDomainModel(),
             key.toDomainModel()
         );
