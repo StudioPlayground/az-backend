@@ -7,8 +7,6 @@ import com.studioplayground.azbackend.account.domain.model.ProviderKey.ProviderI
 import com.studioplayground.azbackend.account.domain.model.ProviderKey.ProviderType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -18,19 +16,18 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor(access = PRIVATE)
 public class ProviderKeyJpaModel {
 
-    @Enumerated(EnumType.STRING)
     @Column(name = "providerType")
-    private ProviderType type;
+    private String type;
 
     @Column(name = "providerId")
     private String id;
 
     public static ProviderKeyJpaModel from(ProviderKey key) {
-        return new ProviderKeyJpaModel(key.type(), key.id().id());
+        return new ProviderKeyJpaModel(key.type().name(), key.id().id());
     }
 
     public ProviderKey toDomainModel() {
-        return new ProviderKey(type, new ProviderId(id));
+        return new ProviderKey(ProviderType.from(type), new ProviderId(id));
     }
 
 }
