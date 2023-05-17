@@ -6,11 +6,16 @@ import lombok.Getter;
 
 @Getter
 @Builder(access = AccessLevel.PRIVATE)
-public non-sealed abstract class FailResponse implements ApiResponse {
+public non-sealed class FailResponse implements ApiResponse {
 
     private final String apiVersion;
     private final ApiErrorCode errorCode;
     private final String message;
+
+    @Override
+    public String getDomain() {
+        return "";
+    }
 
     @Override
     public boolean isSuccess() {
