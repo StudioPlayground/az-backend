@@ -3,6 +3,7 @@ package com.studioplayground.azbackend.account.infrastructure.adapter.in.rest.mo
 
 import static lombok.AccessLevel.PROTECTED;
 
+import com.studioplayground.azbackend.account.applcation.port.in.model.NameCommand;
 import com.studioplayground.azbackend.account.domain.model.Name;
 import jakarta.validation.constraints.NotNull;
 import lombok.NoArgsConstructor;
@@ -17,8 +18,8 @@ public class NameRequestDto {
     @NotNull
     private String displayName;
 
-    public Name toName() {
-        return new Name(firstName, lastName, displayName);
+    public NameCommand toCommand() {
+        return new NameCommand(firstName, lastName, displayName);
     }
 
 }

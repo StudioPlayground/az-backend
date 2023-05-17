@@ -6,6 +6,7 @@ import com.studioplayground.azbackend.account.applcation.port.in.model.CreateAcc
 import com.studioplayground.azbackend.account.domain.model.Gender;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import java.time.LocalDate;
 import lombok.NoArgsConstructor;
 
@@ -14,8 +15,8 @@ public class CreateAccountRequestDto {
 
     @NotNull
     private LocalDate birthDate;
-    @NotNull
-    private Gender gender;
+    @Pattern(regexp = "MALE|FEMALE|NON_BINARY")
+    private String gender;
     @Email
     private String email;
     @NotNull
@@ -27,8 +28,8 @@ public class CreateAccountRequestDto {
 
     public CreateAccountCommand toCommand() {
         return new CreateAccountCommand(birthDate, gender,
-            com.studioplayground.azbackend.common.domain.model.Email.from(email), name.toName(),
-            profile.toProfile(), key.toProviderKey());
+            email, name.toCommand(),
+            profile.toCommand(), key.toCommand());
 
 
     }

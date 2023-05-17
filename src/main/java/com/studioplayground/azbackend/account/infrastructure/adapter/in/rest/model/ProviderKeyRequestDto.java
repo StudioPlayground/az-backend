@@ -2,18 +2,21 @@ package com.studioplayground.azbackend.account.infrastructure.adapter.in.rest.mo
 
 import static lombok.AccessLevel.PROTECTED;
 
-import com.studioplayground.azbackend.account.domain.model.ProviderKey;
-import com.studioplayground.azbackend.account.domain.model.ProviderKey.ProviderId;
-import com.studioplayground.azbackend.account.domain.model.ProviderKey.ProviderType;
+import com.studioplayground.azbackend.account.applcation.port.in.model.ProviderKeyCommand;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = PROTECTED)
 public class ProviderKeyRequestDto {
 
-    private ProviderType type;
+    @Pattern(regexp = "GOOGLE")
+    private String type;
+
+    @NotNull
     private String id;
 
-    public ProviderKey toProviderKey() {
-        return new ProviderKey(type, new ProviderId(id));
+    public ProviderKeyCommand toCommand() {
+        return new ProviderKeyCommand(type, id);
     }
 }

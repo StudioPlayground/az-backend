@@ -2,6 +2,7 @@ package com.studioplayground.azbackend.account.infrastructure.adapter.in.rest.mo
 
 import static lombok.AccessLevel.PROTECTED;
 
+import com.studioplayground.azbackend.account.applcation.port.in.model.AccountProfileCommand;
 import com.studioplayground.azbackend.account.domain.model.AccountProfile;
 import com.studioplayground.azbackend.account.domain.model.ProfileNickname;
 import com.studioplayground.azbackend.common.domain.model.Url;
@@ -19,11 +20,10 @@ public class AccountProfileRequestDto {
     @URL
     private String profileImageUrl;
 
-    public AccountProfile toProfile() {
-        return new AccountProfile(
-            new ProfileNickname(nickname),
-            new Url(profileImageUrl),
-            List.of()
+    public AccountProfileCommand toCommand() {
+        return new AccountProfileCommand(
+            nickname,
+            profileImageUrl
         );
     }
 
