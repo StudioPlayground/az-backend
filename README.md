@@ -92,3 +92,11 @@ V{sprint #}_{jira ticket #}_{seq}__{sql method}_{table name}.sql
   - ```bash
     ./gradlew flywayClean
     ```
+
+## spotless
+
+```bash
+./gradlew spotlessApply
+```
+
+- 혹은 intelliJ의 플러그인 `spotless gradle`을 사용
