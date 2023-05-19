@@ -24,9 +24,9 @@ public non-sealed class FailResponse implements ApiResponse {
 
     public static FailResponse of(ApiErrorCode errorCode, String message) {
         return FailResponse.builder()
-            .apiVersion(DEFAULT_API_VERSION)
-            .errorCode(errorCode)
-            .message(message)
-            .build();
+                .apiVersion(DEFAULT_API_VERSION)
+                .errorCode(errorCode)
+                .message(message)
+                .build();
     }
 }

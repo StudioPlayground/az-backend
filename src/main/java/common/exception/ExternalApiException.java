@@ -1,8 +1,6 @@
 package common.exception;
 
-/**
- * 외부 API 호출중 발생한 Exception
- */
+/** 외부 API 호출중 발생한 Exception */
 public final class ExternalApiException extends AzitException {
     public ExternalApiException(Throwable e) {
         super(e);
