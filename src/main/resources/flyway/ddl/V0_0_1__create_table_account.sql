@@ -6,7 +6,7 @@ CREATE TABLE account (
   status VARCHAR(64) NULL COMMENT '계정상태',
   role VARCHAR(64) NULL COMMENT '계정역할',
   created_by BIGINT NOT NULL COMMENT '작성자',
-  created_date TIMESTAMP NOT NULL COMMENT '작성일시',
-  last_modified_by BIGINT NOT NULL COMMENT '수정자',
-  last_modified_date TIMESTAMP NOT NULL COMMENT '수정일시'
+  created_at TIMESTAMP NOT NULL COMMENT '작성일시',
+  modified_by BIGINT NOT NULL COMMENT '수정자',
+  modified_at TIMESTAMP NOT NULL COMMENT '수정일시'
 ) COMMENT '계정';

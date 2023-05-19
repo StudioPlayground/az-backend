@@ -37,11 +37,11 @@ public abstract class BaseJpaEntity {
     @Column
     @CreatedDate
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private ZonedDateTime createdDateTime;
+    private ZonedDateTime createdAt;
 
     @NotNull
     @Column
     @LastModifiedDate
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private ZonedDateTime modifiedDateTime;
+    private ZonedDateTime modifiedAt;
 }
