@@ -1,5 +1,10 @@
 package com.studioplayground.azbackend.account.infrastructure.adapter.in.rest.model;
 
+import com.studioplayground.azbackend.account.domain.model.aggregate.Account;
+import com.studioplayground.azbackend.account.domain.model.aggregate.AccountProfile;
+import com.studioplayground.azbackend.account.domain.model.aggregate.AccountRole;
+import com.studioplayground.azbackend.account.domain.model.aggregate.AccountStatus;
+import com.studioplayground.azbackend.account.domain.model.aggregate.Gender;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -24,4 +29,9 @@ public class CreateAccountRequestDto {
     private String url;
     private String status;
     private String role;
+
+    public Account toDomainModel() {
+        return Account.withOutId(birthDate, Gender.from(gender), com.studioplayground.azbackend.account.domain.model.aggregate.Email.from(email), name,
+            AccountStatus.from(status), AccountRole.from(role), AccountProfile.from(profileNickName, url));
+    }
 }

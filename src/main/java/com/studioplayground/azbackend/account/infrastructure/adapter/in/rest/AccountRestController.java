@@ -20,7 +20,7 @@ public class AccountRestController {
 
     @PostMapping("/api/v1/accounts")
     SuccessResponse<AccountResponseDto> create(@Valid CreateAccountRequestDto request) {
-        final Account account = createAccountUseCase.create(accountRestModelMapper.toCommand(request));
+        final Account account = createAccountUseCase.create(request);
         return SuccessResponse.of(AccountResponseDto.from(account));
     }
 }
