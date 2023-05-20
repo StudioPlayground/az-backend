@@ -1,4 +1,4 @@
-package com.studioplayground.azbackend.infrastructure.adapter.in.rest.model;
+package com.studioplayground.azbackend.common.infrastructure.adapter.in.rest.model;
 
 import lombok.AccessLevel;
 import lombok.Builder;

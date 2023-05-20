@@ -1,4 +1,4 @@
-package common.exception;
+package com.studioplayground.azbackend.common.exception;
 
 /**
  * 비즈니스 로직상에서 발생한 Exception

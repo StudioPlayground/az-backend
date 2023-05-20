@@ -1,4 +1,4 @@
-package common.exception;
+package com.studioplayground.azbackend.common.exception;
 
 /**
  * 외부 API 호출중 발생한 Exception

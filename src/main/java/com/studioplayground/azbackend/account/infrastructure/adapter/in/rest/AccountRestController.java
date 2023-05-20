@@ -5,7 +5,7 @@ import com.studioplayground.azbackend.account.domain.model.aggregate.Account;
 import com.studioplayground.azbackend.account.infrastructure.adapter.in.rest.mapper.AccountRestModelMapper;
 import com.studioplayground.azbackend.account.infrastructure.adapter.in.rest.model.AccountResponseDto;
 import com.studioplayground.azbackend.account.infrastructure.adapter.in.rest.model.CreateAccountRequestDto;
-import com.studioplayground.azbackend.infrastructure.adapter.in.rest.model.SuccessResponse;
+import com.studioplayground.azbackend.common.infrastructure.adapter.in.rest.model.SuccessResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;

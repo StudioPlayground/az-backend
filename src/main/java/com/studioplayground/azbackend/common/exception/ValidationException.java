@@ -1,4 +1,4 @@
-package common.exception;
+package com.studioplayground.azbackend.common.exception;
 
 /**
  * validate 에서 발생한 Exception

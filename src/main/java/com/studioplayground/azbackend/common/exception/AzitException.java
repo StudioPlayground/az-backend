@@ -1,4 +1,4 @@
-package common.exception;
+package com.studioplayground.azbackend.common.exception;
 
 import lombok.Getter;
 
