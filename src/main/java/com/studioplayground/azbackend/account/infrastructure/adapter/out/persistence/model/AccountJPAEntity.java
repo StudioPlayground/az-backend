@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor(access = PROTECTED)
 @AllArgsConstructor(access = PRIVATE)
-@Table(name = "com/studioplayground/azbackend/account")
+@Table(name = "account")
 public class AccountJPAEntity extends BaseJpaEntity {
 
     @Id
