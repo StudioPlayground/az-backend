@@ -3,7 +3,8 @@ package com.studioplayground.azbackend.common.exception;
 import lombok.Getter;
 
 @Getter
-public sealed class AzitException extends RuntimeException permits BusinessException, ExternalApiException, SystemException, ValidationException {
+public sealed class AzitException extends RuntimeException
+        permits BusinessException, ExternalApiException, SystemException, ValidationException {
     private static final String INTERNAL_SERVER_ERROR = "INTERNAL SERVER ERROR";
     private final String message;
 

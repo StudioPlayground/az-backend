@@ -5,25 +5,27 @@ import com.studioplayground.azbackend.account.domain.model.aggregate.AccountProf
 import com.studioplayground.azbackend.account.domain.model.aggregate.AccountRole;
 import com.studioplayground.azbackend.account.domain.model.aggregate.AccountStatus;
 import com.studioplayground.azbackend.account.domain.model.aggregate.Gender;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import java.time.LocalDate;
+
 import lombok.Builder;
 import lombok.Getter;
+
+import java.time.LocalDate;
 
 @Builder
 @Getter
 public class CreateAccountRequestDto {
 
-    @NotNull
-    private LocalDate birthDate;
+    @NotNull private LocalDate birthDate;
+
     @Pattern(regexp = "MALE|FEMALE|NON_BINARY")
     private String gender;
-    @Email
-    private String email;
-    @NotNull
-    private String name;
+
+    @Email private String email;
+    @NotNull private String name;
 
     private String profileNickName;
     private String url;
@@ -31,7 +33,13 @@ public class CreateAccountRequestDto {
     private String role;
 
     public Account toDomainModel() {
-        return Account.withOutId(birthDate, Gender.from(gender), com.studioplayground.azbackend.account.domain.model.aggregate.Email.from(email), name,
-            AccountStatus.from(status), AccountRole.from(role), AccountProfile.from(profileNickName, url));
+        return Account.withOutId(
+                birthDate,
+                Gender.from(gender),
+                com.studioplayground.azbackend.account.domain.model.aggregate.Email.from(email),
+                name,
+                AccountStatus.from(status),
+                AccountRole.from(role),
+                AccountProfile.from(profileNickName, url));
     }
 }

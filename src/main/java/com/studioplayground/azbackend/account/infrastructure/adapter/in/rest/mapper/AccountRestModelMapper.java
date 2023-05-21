@@ -3,5 +3,4 @@ package com.studioplayground.azbackend.account.infrastructure.adapter.in.rest.ma
 import org.mapstruct.Mapper;
 
 @Mapper
-public interface AccountRestModelMapper {
-}
+public interface AccountRestModelMapper {}

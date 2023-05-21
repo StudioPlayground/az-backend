@@ -10,15 +10,18 @@ import com.studioplayground.azbackend.account.domain.model.aggregate.AccountStat
 import com.studioplayground.azbackend.account.domain.model.aggregate.Email;
 import com.studioplayground.azbackend.account.domain.model.aggregate.Gender;
 import com.studioplayground.azbackend.common.infrastructure.adapter.out.persistence.model.BaseJpaEntity;
+
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import java.time.LocalDate;
+
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
 
 @Entity
 @NoArgsConstructor(access = PROTECTED)
@@ -29,6 +32,7 @@ public class AccountJPAEntity extends BaseJpaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private LocalDate birthDate;
     private String gender;
     private String email;
@@ -36,8 +40,7 @@ public class AccountJPAEntity extends BaseJpaEntity {
     private String status;
     private String role;
 
-    @Embedded
-    private AccountProfileJpaEntity profile;
+    @Embedded private AccountProfileJpaEntity profile;
 
     public static AccountJPAEntity from(Account account) {
         return new AccountJPAEntity(
@@ -60,7 +63,6 @@ public class AccountJPAEntity extends BaseJpaEntity {
                 name,
                 AccountStatus.from(status),
                 AccountRole.from(role),
-                profile.toDomainModel()
-        );
+                profile.toDomainModel());
     }
 }

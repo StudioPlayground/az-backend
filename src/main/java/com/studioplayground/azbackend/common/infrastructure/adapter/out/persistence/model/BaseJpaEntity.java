@@ -1,20 +1,22 @@
 package com.studioplayground.azbackend.common.infrastructure.adapter.out.persistence.model;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.NotNull;
-import java.time.ZonedDateTime;
+
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.ZonedDateTime;
 
 @SuperBuilder
 @MappedSuperclass
@@ -23,15 +25,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseJpaEntity {
 
-    @NotNull
-    @Column
-    @CreatedBy
-    private Long createdBy;
+    @NotNull @Column @CreatedBy private Long createdBy;
 
-    @NotNull
-    @Column
-    @LastModifiedBy
-    private Long modifiedBy;
+    @NotNull @Column @LastModifiedBy private Long modifiedBy;
 
     @NotNull
     @Column

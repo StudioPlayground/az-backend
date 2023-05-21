@@ -1,4 +1,3 @@
 package com.studioplayground.azbackend.account.application.port.in;
 
-public interface ForceDeleteAccountUseCase {
-}
+public interface ForceDeleteAccountUseCase {}

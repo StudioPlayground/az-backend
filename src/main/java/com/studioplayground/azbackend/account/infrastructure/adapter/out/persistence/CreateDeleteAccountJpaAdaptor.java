@@ -4,9 +4,10 @@ import com.studioplayground.azbackend.account.application.port.out.CreateAccount
 import com.studioplayground.azbackend.account.domain.model.aggregate.Account;
 import com.studioplayground.azbackend.account.infrastructure.adapter.out.persistence.model.AccountJPAEntity;
 import com.studioplayground.azbackend.account.infrastructure.adapter.out.persistence.repository.AccountJPARepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 
+import lombok.RequiredArgsConstructor;
+
+import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor

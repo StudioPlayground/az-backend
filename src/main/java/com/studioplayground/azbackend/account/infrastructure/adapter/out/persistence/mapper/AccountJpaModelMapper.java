@@ -3,5 +3,4 @@ package com.studioplayground.azbackend.account.infrastructure.adapter.out.persis
 import org.mapstruct.Mapper;
 
 @Mapper
-public interface AccountJpaModelMapper {
-}
+public interface AccountJpaModelMapper {}
