@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor(access = PRIVATE)
 public class AccountProfileJpaEntity {
 
-    private String nickName;
+    private String nickname;
     private String profileImageUrl;
 
     public static AccountProfileJpaEntity from(AccountProfile accountProfile) {
@@ -25,7 +25,7 @@ public class AccountProfileJpaEntity {
 
     public AccountProfile toDomainModel() {
         return new AccountProfile(
-                ProfileNickName.from(nickName),
+                ProfileNickName.from(nickname),
                 Url.from(profileImageUrl));
     }
 

@@ -32,7 +32,7 @@ public non-sealed class SuccessResponse<T> implements ApiResponse {
         return SuccessResponse.<T>builder().apiVersion(apiVersion).result(result).build();
     }
 
-    public static SuccessResponse<?> success() {
+    public static SuccessResponse<?> of() {
         return EMPTY_SUCCESS_RESPONSE;
     }
 }
