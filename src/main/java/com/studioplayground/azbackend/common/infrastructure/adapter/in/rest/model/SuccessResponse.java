@@ -3,8 +3,6 @@ package com.studioplayground.azbackend.common.infrastructure.adapter.in.rest.mod
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 @Getter
 @Builder(access = AccessLevel.PRIVATE)
