@@ -1,5 +1,6 @@
 CREATE TABLE account (
   id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '계정아이디',
+  email VARCHAR(255) NOT NULL COMMENT '이메일',
   name VARCHAR(255) NULL COMMENT '계정이름',
   birth_date DATE NULL COMMENT '계정생년월일',
   gender VARCHAR(64) NULL COMMENT '계정성별',
