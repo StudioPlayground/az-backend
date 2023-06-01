@@ -11,4 +11,8 @@ public final class BusinessException extends AzitException {
     public BusinessException(Throwable e, String message) {
         super(e, message);
     }
+
+    public BusinessException(String message) {
+        super(message);
+    }
 }
