@@ -1,8 +1,8 @@
-package com.studioplayground.azbackend.account.application.port.in;
+package com.studioplayground.azbackend.account.application.port.out;
 
 import com.studioplayground.azbackend.account.domain.model.aggregate.AccountId;
 
-public interface DeleteAccountUseCase {
+public interface DeleteAccountPort {
 
     void delete(AccountId accountId);
 }
