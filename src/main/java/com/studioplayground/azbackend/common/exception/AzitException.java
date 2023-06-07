@@ -16,4 +16,9 @@ public sealed class AzitException extends RuntimeException permits BusinessExcep
         super(e);
         this.message = message;
     }
+
+    public AzitException(String message) {
+        super(message);
+        this.message = message;
+    }
 }
